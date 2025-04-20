@@ -385,7 +385,7 @@ def main():
     global conn
     
     root = tk.Tk()
-    root.title("Система учета товаров с чеком")
+    root.title("Магазин")
     root.geometry("900x700")
     
     # Подключение к базе данных
