@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import ttk, messagebox
 import sqlite3
@@ -103,23 +102,25 @@ class SportStoreApp:
         ttk.Button(search_frame, text="Найти", command=self.search_products, bootstyle = "info-outline").pack(side=tk.LEFT, padx=2)
         
         # Таблица товаров
-        columns = ("id", "name", "category", "brand", "price", "quantity")
+        columns = ("id", "name", "category", "brand", "price", "quantity", "supplier_id")
         self.products_tree = ttk.Treeview(self.products_tab, columns=columns, show="headings", selectmode="browse")
         
         self.products_tree.heading("id", text="ID")
         self.products_tree.heading("name", text="Название")
-        self.products_tree.heading("category", text="Категория")
-        self.products_tree.heading("brand", text="Бренд")
+        self.products_tree.heading("category", text="ID категории")
+        self.products_tree.heading("brand", text="ID бренда")
         self.products_tree.heading("price", text="Цена")
         self.products_tree.heading("quantity", text="Количество")
-        
+        self.products_tree.heading("supplier_id", text = "ID поставщика")
+
         self.products_tree.column("id", width=50, anchor=tk.CENTER)
         self.products_tree.column("name", width=200)
-        self.products_tree.column("category", width=150)
-        self.products_tree.column("brand", width=150)
+        self.products_tree.column("category", width=130)
+        self.products_tree.column("brand", width=130)
         self.products_tree.column("price", width=100, anchor=tk.E)
         self.products_tree.column("quantity", width=100, anchor=tk.CENTER)
-        
+        self.products_tree.column("supplier_id", width=90)
+
         scrollbar = ttk.Scrollbar(self.products_tab, orient=tk.VERTICAL, command=self.products_tree.yview)
         self.products_tree.configure(yscroll=scrollbar.set)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
@@ -249,10 +250,12 @@ class SportStoreApp:
     # Методы для работы с товарами
     def update_products_list(self):
         self.products_tree.delete(*self.products_tree.get_children())
-        products = self.db.execute('''SELECT p.product_id, p.name, c.name, b.name, p.price, p.quantity 
+        products = self.db.execute('''SELECT p.product_id, p.name, c.category_id, b.brand_id, p.price, p.quantity, s.supplier_id 
                                    FROM products p 
                                    JOIN categories c ON p.category_id = c.category_id 
-                                   JOIN brands b ON p.brand_id = b.brand_id''').fetchall()
+                                   JOIN brands b ON p.brand_id = b.brand_id
+                                   JOIN suppliers s ON p.supplier_id = s.supplier_id'''
+                                   ).fetchall()
         for product in products:
             self.products_tree.insert("", tk.END, values=product)
     
