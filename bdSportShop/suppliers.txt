@@ -1,0 +1,15 @@
+SportGoods Inc | Иван Петров | +79161234567 | sportgoods@example.com
+ProTeam Supply | Ольга Сидорова | +79039876543 | proteam@example.com
+Extreme Gear | Алексей Волков | +79258765432 | extreme@example.com
+FitLine Logistics | Екатерина Козлова | +79104561234 | fitline@example.com
+Champion Sports | Дмитрий Морозов | +79031237894 | champion@example.com
+ActiveWear Co | Анна Смирнова | +79216549870 | activewear@example.com
+Outdoor Pro | Михаил Лебедев | +79157893210 | outdoor@example.com
+Elite Sports | Татьяна Новикова | +79094561237 | elite@example.com
+GymMaster Ltd | Сергей Кузнецов | +79204321567 | gymmaster@example.com
+RunFast Supply | Мария Васнецова | +79168765432 | runfast@example.com
+TennisPro | Артем Громов | +79055432167 | tennispro@example.com
+SwimPlus | Юлия Орлова | +79219876543 | swimplus@example.com
+WinterGear | Павел Белов | +79153214567 | wintergear@example.com
+FightStyle | Денис Крюков | +79046789123 | fightstyle@example.com
+FishHunter | Наталья Соколова | +79206543218 | fishhunter@example.com
